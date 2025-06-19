@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://veeiniptv.netlify.app/sitemap.xml
