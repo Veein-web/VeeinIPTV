@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Tv, Download, Satellite, Radio, Monitor, Smartphone, Tablet, Wifi, CheckCircle, Star, Globe, Play, Flag, FileText, Search } from 'lucide-react';
+import { Tv, Download, Satellite, Radio, Monitor, Smartphone, Tablet, Wifi, CheckCircle, Star, Globe, Play, Flag, FileText, Search, Film } from 'lucide-react';
 
-type ChannelType = 'all' | 'bein' | 'osn' | 'egyptian';
+type ChannelType = 'all' | 'bein' | 'osn' | 'egyptian' | 'mbc';
 
 interface ChannelOption {
   id: ChannelType;
@@ -46,6 +46,15 @@ function App() {
       size: '200 KB'
     },
     {
+      id: 'mbc',
+      name: 'قنوات MBC',
+      description: 'جميع قنوات MBC الترفيهية والإخبارية والرياضية',
+      icon: <Film size={24} />,
+      color: 'from-orange-500 to-red-500',
+      channels: '60+',
+      size: '180 KB'
+    },
+    {
       id: 'egyptian',
       name: 'القنوات المصرية',
       description: 'جميع القنوات المصرية الرسمية والخاصة',
@@ -67,6 +76,8 @@ function App() {
         return 'bein-sports-channels.m3u';
       case 'osn':
         return 'osn-channels.m3u';
+      case 'mbc':
+        return 'mbc-channels.m3u';
       case 'egyptian':
         return 'egyptian-channels.m3u';
       default:
@@ -98,6 +109,11 @@ function App() {
       
       if (selectedOption === 'osn') {
         window.open('https://exe.io/hAJZiSQ', '_blank');
+        return;
+      }
+      
+      if (selectedOption === 'mbc') {
+        window.open('https://exe.io/MBC-CHANNELS', '_blank');
         return;
       }
     }, 2000);
@@ -152,7 +168,7 @@ function App() {
             <p className="text-lg text-slate-400 mb-6 max-w-3xl mx-auto">
               موقع Veein IPTV يوفر لك إمكانية الوصول إلى آلاف القنوات التلفزيونية عالية الجودة مجاناً. 
               نحن نقدم قوائم IPTV محدثة يومياً تشمل القنوات الرياضية، الإخبارية، الترفيهية، وقنوات الأطفال. 
-              استمتع بمشاهدة قنوات بي إن سبورت، OSN، والقنوات المصرية والعربية بجودة HD و 4K على جميع أجهزتك.
+              استمتع بمشاهدة قنوات بي إن سبورت، OSN، MBC، والقنوات المصرية والعربية بجودة HD و 4K على جميع أجهزتك.
             </p>
           </div>
 
@@ -170,7 +186,7 @@ function App() {
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">تنوع في المحتوى</h3>
                 <p className="text-sm">
-                  من القنوات الرياضية مثل بي إن سبورت إلى قنوات الأفلام والمسلسلات مثل OSN، 
+                  من القنوات الرياضية مثل بي إن سبورت إلى قنوات الأفلام والمسلسلات مثل OSN و MBC، 
                   بالإضافة إلى القنوات الإخبارية والترفيهية العربية والعالمية.
                 </p>
               </div>
@@ -196,7 +212,7 @@ function App() {
             {/* Channel Options */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">اختر نوع القنوات</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 {channelOptions.map((option) => (
                   <div
                     key={option.id}
@@ -322,6 +338,17 @@ function App() {
                   </div>
                 )}
 
+                {selectedOption === 'mbc' && (
+                  <div className="flex flex-wrap justify-center gap-2 text-sm">
+                    <span className="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full">MBC 1</span>
+                    <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full">MBC 2</span>
+                    <span className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full">MBC 3</span>
+                    <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full">MBC 4</span>
+                    <span className="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full">MBC Action</span>
+                    <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full">MBC Max</span>
+                  </div>
+                )}
+
                 {selectedOption === 'egyptian' && (
                   <div className="flex flex-wrap justify-center gap-2 text-sm">
                     <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full">القنوات الرسمية</span>
@@ -360,6 +387,7 @@ function App() {
                      selectedOption === 'egyptian' ? 'الحصول على القنوات المصرية' : 
                      selectedOption === 'bein' ? 'الحصول على قنوات بي إن سبورت' :
                      selectedOption === 'osn' ? 'الحصول على قنوات OSN' :
+                     selectedOption === 'mbc' ? 'الحصول على قنوات MBC' :
                      `تحميل ${selectedOptionData.name}`}
                   </>
                 )}
