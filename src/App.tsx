@@ -113,7 +113,7 @@ function App() {
       }
       
       if (selectedOption === 'mbc') {
-        window.open('https://exe.io/MBC-CHANNELS', '_blank');
+        window.open('https://shrinkme.ink/vaG81', '_blank');
         return;
       }
     }, 2000);
