@@ -156,9 +156,7 @@ function App() {
         <div className="max-w-5xl w-full">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full mb-6 shadow-lg shadow-sky-500/25">
-              <span className="text-white font-bold text-base sm:text-lg">Veein</span>
-            </div>
+            <img src="/logo.png" alt="Veein IPTV Logo" className="mx-auto w-32 h-32 object-contain mb-6 drop-shadow-lg" />
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
               Veein IPTV - البث المباشر المجاني
             </h1>
