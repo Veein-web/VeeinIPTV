@@ -103,12 +103,12 @@ function App() {
       }
       
       if (selectedOption === 'bein') {
-        window.open('https://exe.io/1LjIx', '_blank');
+        window.open('https://exe.io/faxV', '_blank');
         return;
       }
       
       if (selectedOption === 'osn') {
-        window.open('https://exe.io/hAJZiSQ', '_blank');
+        window.open('https://exe.io/oJEKS68', '_blank');
         return;
       }
       
