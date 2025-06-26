@@ -65,26 +65,6 @@ function App() {
     }
   ];
 
-  const generateM3UContent = (type: ChannelType): string => {
-    // جميع الخيارات الآن تتوجه لروابط خارجية
-    return 'REDIRECT_TO_LINK';
-  };
-
-  const getFileName = (type: ChannelType): string => {
-    switch (type) {
-      case 'bein':
-        return 'bein-sports-channels.m3u';
-      case 'osn':
-        return 'osn-channels.m3u';
-      case 'mbc':
-        return 'mbc-channels.m3u';
-      case 'egyptian':
-        return 'egyptian-channels.m3u';
-      default:
-        return 'all-iptv-channels.m3u';
-    }
-  };
-
   const handleDownload = () => {
     setIsDownloading(true);
     
